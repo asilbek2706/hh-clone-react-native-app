@@ -1,3 +1,5 @@
 import { filterJobTypes } from "./data";
 
-export { filterJobTypes };
+import { COLORS, SIZES } from "./theme";
+
+export { COLORS, filterJobTypes, SIZES };

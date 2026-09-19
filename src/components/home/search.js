@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 
-import { filterJobTypes } from "../../constants";
+import { COLORS, filterJobTypes, SIZES } from "../../constants";
 
 export default function Search() {
   const activeFilter = "Full-time";
@@ -42,7 +42,7 @@ export default function Search() {
           keyExtractor={(item) => `filter-job-${item}`}
           horizontal
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ columnGap: 10 }}
+          contentContainerStyle={{ columnGap: SIZES.xSmall }}
         />
       </View>
     </View>
@@ -54,47 +54,43 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    marginTop: 20,
+    marginTop: SIZES.xLarge,
     height: 50,
   },
   searchWrapper: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.lightWhite,
     justifyContent: "center",
     alignItems: "center",
     height: "100%",
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
   },
   searchInput: {
     width: "100%",
     height: "100%",
-    paddingHorizontal: 10,
+    paddingHorizontal: SIZES.medium,
   },
   searchBtn: {
     width: 50,
     height: "100%",
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10,
-    backgroundColor: "red",
+    backgroundColor: COLORS.tertiary,
     justifyContent: "center",
     alignItems: "center",
   },
   searchBtnIcon: {
     width: "50%",
     height: "50%",
-    tintColor: "#fff",
+    tintColor: COLORS.white,
   },
-  filterContainer: { alignItems: "center", marginTop: 20 },
+  filterContainer: { alignItems: "center", marginTop: SIZES.large },
   filter: (activeFilterJob, item) => ({
-    paddingVertical: 6,
-    paddingHorizontal: 12,
+    paddingVertical: SIZES.small / 2,
+    paddingHorizontal: SIZES.medium,
     borderWidth: 1,
-    borderRadius: 10,
-    borderColor: activeFilterJob === item ? "#222" : "red",
-    backgroundColor: activeFilterJob === item ? "red" : "#fff",
+    borderColor: activeFilterJob === item ? COLORS.secondary : COLORS.gray2,
+    backgroundColor:
+      activeFilterJob === item ? COLORS.secondary : COLORS.lightWhite,
   }),
   filterTitle: (activeFilterJob, item) => ({
-    color: activeFilterJob === item ? "#fff" : "#222",
+    color: activeFilterJob === item ? COLORS.white : COLORS.gray,
   }),
 });
